@@ -7,21 +7,26 @@ const StreamingText = ({ text, onComplete }) => {
     
     useEffect(() => {
         let index = 0;
-        setDisplayedText('');
-        setIsComplete(false);
+        let timeoutId;
+				setDisplayedText("");
+				setIsComplete(false);
+
+				const streamNextChar = () => {
+					if (index < text.length) {
+						setDisplayedText(text.substring(0, index + 1));
+						index++;
+						timeoutId = setTimeout(streamNextChar, 10);
+					} else {
+						setIsComplete(true);
+						if (onComplete) onComplete();
+					}
+				};
+
+				timeoutId = setTimeout(streamNextChar, 10);
         
-        const interval = setInterval(() => {
-            if (index < text.length) {
-                setDisplayedText(prev => prev + text[index]);
-                index++;
-            } else {
-                setIsComplete(true);
-                clearInterval(interval);
-                if (onComplete) onComplete();
-            }
-        }, 10);
-        
-        return () => clearInterval(interval);
+        return () => {
+					if (timeoutId) clearTimeout(timeoutId);
+				};
     }, [text, onComplete]);
     
     return (

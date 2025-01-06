@@ -17,13 +17,13 @@ const Terminal = () => {
         commandProcessor.current.setCommands(commands);
         // Initial welcome message
         setHistory([
-            { 
-                id: Date.now(), 
-                text: "Welcome to my interactive portfolio! 👋\nI'm Giomarco Baglioni. Type 'help' to see available commands.", 
-                type: 'system',
-                streaming: true 
-            }
-        ]);
+					{
+						id: Date.now(),
+						text: "Hi 👋\nI'm Gio Marco Baglioni. Type 'help' to see available commands.",
+						type: "system",
+						streaming: true,
+					},
+				]);
         inputRef.current?.focus();
     }, []);
 

@@ -1,7 +1,6 @@
 const commands = {
-    help: () => ({
-        output: `Welcome to my Interactive Portfolio! 👋
-
+	help: () => ({
+		output: `
 Here's how to navigate:
 ━━━━━━━━━━━━━━━━━━━━━━
 
@@ -20,11 +19,11 @@ Here's how to navigate:
    ..       ⬅️  Go back
 
 Just type a number or command and press Enter!`,
-        type: 'output'
-    }),
+		type: "output",
+	}),
 
-    menu: () => ({
-        output: `Main Menu 🏠
+	menu: () => ({
+		output: `Main Menu 🏠
 ━━━━━━━━
 
 [1] about    👤 Get to know me
@@ -33,14 +32,14 @@ Just type a number or command and press Enter!`,
 
 Type a number or command and press Enter.
 Type 'help' if you need assistance.`,
-        type: 'output'
-    }),
+		type: "output",
+	}),
 
-    about: () => ({
-        output: `About Me 👤
+	about: () => ({
+		output: `About Me 👤
 ━━━━━━━━
 
-Hey there! I'm Giomarco Baglioni (aka akkaz) 👋
+Hey there! I'm Gio Marco Baglioni (aka akkaz) 👋
 
 💡 What I Do:
    I'm a Web Developer and AI Expert who loves creating innovative
@@ -61,11 +60,11 @@ Hey there! I'm Giomarco Baglioni (aka akkaz) 👋
 
 Type 'skills' to see my technical expertise in detail.
 Type '..' to go back to the menu.`,
-        type: 'output'
-    }),
+		type: "output",
+	}),
 
-    skills: () => ({
-        output: `Technical Expertise 💻
+	skills: () => ({
+		output: `Technical Expertise 💻
 ━━━━━━━━━━━━━━━━━
 
 🌐 Web Development
@@ -90,11 +89,11 @@ Type '..' to go back to the menu.`,
 }
 
 Type '..' to go back to the menu.`,
-        type: 'output'
-    }),
+		type: "output",
+	}),
 
-    whoami: () => ({
-        output: `Quick Intro 📌
+	whoami: () => ({
+		output: `Quick Intro 📌
 ━━━━━━━━━━━
 
 👋 Giomarco Baglioni (@akkaz)
@@ -110,13 +109,13 @@ Current focus: Merging web development with AI innovation
 
 Type 'about' for my full story or 'skills' for detailed expertise.
 Type '..' to go back to the menu.`,
-        type: 'output'
-    }),
+		type: "output",
+	}),
 
-    clear: () => ({
-        output: null,
-        type: 'clear'
-    })
+	clear: () => ({
+		output: null,
+		type: "clear",
+	}),
 };
 
 export default commands;
