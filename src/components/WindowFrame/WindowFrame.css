@@ -1,0 +1,98 @@
+.window {
+    width: 90vw;
+    height: 85vh;
+    min-width: 500px;
+    min-height: 300px;
+    background: #2D2D2D;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    resize: both;
+    position: relative;
+}
+
+.title-bar {
+    height: 32px;
+    background: #2D2D2D;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    user-select: none;
+    border-bottom: 1px solid #404040;
+}
+
+.title-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.title-bar-text {
+    color: #CCCCCC;
+    font-size: 14px;
+}
+
+.title-bar-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.control-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.control-button:hover {
+    opacity: 0.8;
+}
+
+.minimize { background: #FBD601; }
+.maximize { background: #01D726; }
+.close { background: #FC4246; }
+
+.home-button {
+    background: none;
+    border: none;
+    color: #4EC9B0;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.home-button:hover {
+    background: rgba(78, 201, 176, 0.1);
+}
+
+.resize-handle {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 15px;
+    height: 15px;
+    cursor: se-resize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4EC9B0;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.resize-handle:hover {
+    opacity: 1;
+}
+
+.resize-handle::before {
+    content: "⋮";
+    transform: rotate(-45deg);
+    font-size: 12px;
+}

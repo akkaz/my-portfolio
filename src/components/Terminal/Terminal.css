@@ -1,0 +1,64 @@
+.terminal {
+    flex-grow: 1;
+    background: #1E1E1E;
+    padding: 1.5rem;
+    overflow-y: auto;
+    font-family: 'Fira Code', monospace;
+}
+
+.terminal-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.line {
+    margin-bottom: 0.5rem;
+    word-wrap: break-word;
+}
+
+.prompt {
+    color: #569CD6;
+}
+
+.prompt::before {
+    content: "guest@portfolio:~$ ";
+    color: #4EC9B0;
+}
+
+.input-line {
+    display: flex;
+    margin-top: 0.5rem;
+}
+
+.input-prefix {
+    color: #4EC9B0;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-grow: 1;
+}
+
+.input-wrapper input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #D4D4D4;
+    font-family: 'Fira Code', monospace;
+    font-size: 1rem;
+    padding: 0;
+    outline: none;
+}
+
+.output {
+    color: #D4D4D4;
+    white-space: pre-wrap;
+}
+
+.error {
+    color: #F44747;
+}
+
+.system {
+    color: #608B4E;
+}
