@@ -1,1 +1,44 @@
-IyBUZXJtaW5hbCBQb3J0Zm9saW8KCkFuIGludGVyYWN0aXZlIHRlcm1pbmFsLXN0eWxlIHBvcnRmb2xpbyB3ZWJzaXRlLgoKIyMgU2V0dXAKCjEuIEluc3RhbGwgZGVwZW5kZW5jaWVzOgpgYGBiYXNoCm5wbSBpbnN0YWxsCmBgYAoKMi4gU3RhcnQgdGhlIGRldmVsb3BtZW50IHNlcnZlcjoKYGBgYmFzaApucG0gc3RhcnQKYGBgCgozLiBCdWlsZCBmb3IgcHJvZHVjdGlvbjoKYGBgYmFzaApucG0gcnVuIGJ1aWxkCmBgYAoKIyMgRmVhdHVyZXMKCi0gSW50ZXJhY3RpdmUgdGVybWluYWwgaW50ZXJmYWNlCi0gQ29tbWFuZC1iYXNlZCBuYXZpZ2F0aW9uCi0gU3RyZWFtaW5nIHRleHQgZWZmZWN0Ci0gUmVzaXphYmxlIHdpbmRvdwotIFJlc3BvbnNpdmUgZGVzaWduCi0gVGVzdCBsaW5lOiBUaGlzIGlzIGEgdGVzdCBtb2RpZmljYXRpb24KCiMjIEF2YWlsYWJsZSBDb21tYW5kcwoKLSBoZWxwOiBTaG93IGF2YWlsYWJsZSBjb21tYW5kcwotIGFib3V0OiBMZWFybiBhYm91dCBtZQotIHNraWxsczogVmlldyB0ZWNobmljYWwgc2tpbGxzCi0gd2hvYW1pOiBRdWljayBpbnRyb2R1Y3Rpb24KLSBjbGVhcjogQ2xlYXIgdGhlIHRlcm1pbmFsCi0gLi46IEdvIGJhY2sgdG8gcHJldmlvdXMgcGFnZQoKIyMgVGVjaCBTdGFjawoKLSBSZWFjdAotIENTUzMKLSBNb2Rlcm4gSmF2YVNjcmlwdA==
+# Terminal Portfolio
+
+An interactive terminal-style portfolio website.
+
+## Setup
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Start the development server:
+```bash
+npm start
+```
+
+3. Build for production:
+```bash
+npm run build
+```
+
+## Features
+
+- Interactive terminal interface
+- Command-based navigation
+- Streaming text effect
+- Resizable window
+- Responsive design
+- Test line: This is a test modification
+
+## Available Commands
+
+- help: Show available commands
+- about: Learn about me
+- skills: View technical skills
+- whoami: Quick introduction
+- clear: Clear the terminal
+- ..: Go back to previous page
+
+## Tech Stack
+
+- React
+- CSS3
+- Modern JavaScript
