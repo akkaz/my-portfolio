@@ -26,6 +26,7 @@ npm run build
 - Streaming text effect
 - Resizable window
 - Responsive design
+- Test line: This is a test modification
 
 ## Available Commands
 
