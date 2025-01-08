@@ -1,9 +1,12 @@
 .terminal {
     flex-grow: 1;
-    background: #1E1E1E;
+    background: #1a1b26;
     padding: 1.5rem;
     overflow-y: auto;
     font-family: 'Fira Code', monospace;
+    line-height: 1.6;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 8px 8px;
 }
 
 .terminal-content {
@@ -12,17 +15,34 @@
 }
 
 .line {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     word-wrap: break-word;
 }
 
+.line.system {
+    padding: 0.5rem 0;
+}
+
+.system pre {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background: #2D2D2D;
+    border-radius: 4px;
+}
+
+.system code {
+    background: #2D2D2D;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+}
+
 .prompt {
-    color: #569CD6;
+    color: #7aa2f7;
 }
 
 .prompt::before {
-    content: "guest@portfolio:~$ ";
-    color: #4EC9B0;
+    content: "[akkaz~]$ ";
+    color: #7aa2f7;
 }
 
 .input-line {
@@ -31,7 +51,7 @@
 }
 
 .input-prefix {
-    color: #4EC9B0;
+    color: #7aa2f7;
 }
 
 .input-wrapper {
@@ -43,11 +63,51 @@
     width: 100%;
     background: transparent;
     border: none;
-    color: #D4D4D4;
+    color: #c0caf5;
     font-family: 'Fira Code', monospace;
     font-size: 1rem;
     padding: 0;
     outline: none;
+    caret-color: #c0caf5;
+    caret-shape: block;
+}
+
+.input-wrapper input::placeholder {
+    color: rgba(192, 202, 245, 0.3);
+    font-style: italic;
+}
+
+/* Custom block cursor */
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #c0caf5;
+    font-family: 'Fira Code', monospace;
+    font-size: 1rem;
+    padding: 0;
+    outline: none;
+    caret-color: #c0caf5;
+    caret-width: thick;
+}
+
+.input-wrapper input::placeholder {
+    color: rgba(192, 202, 245, 0.3);
+}
+
+@keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
 }
 
 .output {
@@ -56,9 +116,64 @@
 }
 
 .error {
-    color: #F44747;
+    color: #f7768e;
 }
 
 .system {
-    color: #608B4E;
+    color: #a9b1d6;
+}
+
+/* Scrollbar styling */
+.terminal::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal::-webkit-scrollbar-track {
+    background: #1a1b26;
+}
+
+.terminal::-webkit-scrollbar-thumb {
+    background: #3d3d3d;
+    border-radius: 4px;
+}
+
+/* Animation for text appearance */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(2px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.line {
+    animation: fadeIn 0.2s ease-out forwards;
+    white-space: pre-wrap;
+    margin: 4px 0;
+}
+
+.clickable-command {
+    color: #7aa2f7;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 4px;
+    margin: -4px 0;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+
+.clickable-command:hover {
+    background-color: rgba(122, 162, 247, 0.1);
+    text-decoration: underline;
+}
+
+.system {
+    white-space: pre-wrap;
+}
+
+.output {
+    white-space: pre-wrap;
 }

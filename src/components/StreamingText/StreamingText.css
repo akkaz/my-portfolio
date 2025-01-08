@@ -1,5 +1,6 @@
 .streaming-text {
-    display: inline-block;
+    display: block;
+    white-space: pre-wrap;
 }
 
 .streaming-text span {

@@ -1,7 +1,10 @@
 import React from 'react';
+import { useLanguage } from '../../contexts/LanguageContext';
 import './WindowFrame.css';
 
 const WindowFrame = ({ children }) => {
+    const { language, setLanguage } = useLanguage();
+
     const handleHomeClick = () => {
         // You can implement custom home button behavior here
         console.log('Home clicked');
@@ -18,7 +21,23 @@ const WindowFrame = ({ children }) => {
                     >
                         🏠
                     </button>
-                    <div className="title-bar-text">my portfolio</div>
+                    <div className="language-buttons">
+                        <button 
+                            className={`lang-button ${language === 'it' ? 'active' : ''}`}
+                            onClick={() => setLanguage('it')}
+                            title="Italiano"
+                        >
+                            🇮🇹
+                        </button>
+                        <button 
+                            className={`lang-button ${language === 'en' ? 'active' : ''}`}
+                            onClick={() => setLanguage('en')}
+                            title="English"
+                        >
+                            🇬🇧
+                        </button>
+                    </div>
+                    <div className="title-bar-text">portfolio</div>
                 </div>
                 <div className="title-bar-controls">
                     <button className="control-button minimize"></button>

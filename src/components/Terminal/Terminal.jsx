@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '../../contexts/LanguageContext';
 import StreamingText from '../StreamingText';
 import WindowFrame from '../WindowFrame';
 import CommandProcessor from '../../services/commandProcessor';
@@ -6,6 +7,7 @@ import commands from '../../data/commands';
 import './Terminal.css';
 
 const Terminal = () => {
+    const { t, language } = useLanguage();
     const [history, setHistory] = useState([]);
     const [inputValue, setInputValue] = useState('');
     const [hasShownHelp, setHasShownHelp] = useState(false);
@@ -17,15 +19,15 @@ const Terminal = () => {
         commandProcessor.current.setCommands(commands);
         // Initial welcome message
         setHistory([
-					{
-						id: Date.now(),
-						text: "Hi 👋\nI'm Gio Marco Baglioni. Type 'help' to see available commands.",
-						type: "system",
-						streaming: true,
-					},
-				]);
+            {
+                id: Date.now(),
+                text: t('welcome'),
+                type: "system",
+                streaming: true,
+            },
+        ]);
         inputRef.current?.focus();
-    }, []);
+    }, [language, t]); // Re-run when language changes
 
     const scrollToBottom = () => {
         if (terminalRef.current) {
@@ -41,38 +43,40 @@ const Terminal = () => {
         e.preventDefault();
         if (!inputValue) return;
 
-        const result = commandProcessor.current.process(inputValue);
+        const command = inputValue.trim().toLowerCase();
+        let result = commandProcessor.current.process(command);
+
+        // If command not found
+        if (!result) {
+            result = {
+                output: t('errors.commandNotFound'),
+                type: 'error'
+            };
+        }
         
-        if (result?.type === 'clear') {
+        if (result.type === 'clear') {
             setHistory([]);
             setHasShownHelp(false);
         } else {
-            if (!['help', 'clear'].includes(inputValue.toLowerCase())) {
-                setHistory([
-                    { id: Date.now() - 2, text: inputValue, type: 'prompt' },
-                    { 
-                        id: Date.now() - 1, 
-                        text: result?.output || 'Command not found', 
-                        type: result?.type || 'error',
-                        streaming: true 
-                    }
-                ]);
-            } else {
-                const newHistory = [
-                    ...history,
-                    { id: Date.now(), text: inputValue, type: 'prompt' },
-                    { 
-                        id: Date.now() + 1, 
-                        text: result?.output || 'Command not found', 
-                        type: result?.type || 'error',
-                        streaming: true 
-                    }
-                ];
-                setHistory(newHistory);
-            }
+            const newHistory = [
+                ...history,
+                { id: Date.now(), text: inputValue, type: 'prompt' },
+                { 
+                    id: Date.now() + 1, 
+                    text: result.output,
+                    type: result.type || 'error',
+                    streaming: true 
+                }
+            ];
+            setHistory(newHistory);
         }
 
         setInputValue('');
+    };
+
+    const handleCommandClick = (command) => {
+        setInputValue(command);
+        inputRef.current?.focus();
     };
 
     const handleWelcomeComplete = () => {
@@ -106,6 +110,7 @@ const Terminal = () => {
                                             ? handleWelcomeComplete 
                                             : undefined
                                     }
+                                    onCommandClick={handleCommandClick}
                                 />
                             ) : (
                                 <StreamingText text={entry.text} />
@@ -113,7 +118,7 @@ const Terminal = () => {
                         </div>
                     ))}
                     <div className="input-line">
-                        <span className="input-prefix">guest@portfolio:~$ </span>
+                        <span className="input-prefix">{t('commandPrompt')} </span>
                         <div className="input-wrapper">
                             <input
                                 ref={inputRef}
@@ -127,6 +132,7 @@ const Terminal = () => {
                                 }}
                                 spellCheck="false"
                                 autoFocus
+                                placeholder={t('inputPlaceholder')}
                             />
                         </div>
                     </div>
