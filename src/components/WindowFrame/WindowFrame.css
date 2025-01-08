@@ -1,7 +1,7 @@
 .window {
     width: 90vw;
     height: 85vh;
-    min-width: 500px;
+    min-width: min(500px, 95vw);
     min-height: 300px;
     background: #1a1b26;
     border-radius: 8px;
@@ -11,6 +11,18 @@
     overflow: hidden;
     resize: both;
     position: relative;
+    max-width: 1200px;
+}
+
+@media (max-width: 768px) {
+    .window {
+        width: 100vw;
+        height: 100vh;
+        min-width: 100vw;
+        min-height: 100vh;
+        border-radius: 0;
+        resize: none;
+    }
 }
 
 .title-bar {
@@ -22,6 +34,13 @@
     padding: 0 12px;
     user-select: none;
     border-bottom: 1px solid #404040;
+}
+
+@media (max-width: 768px) {
+    .title-bar {
+        height: 40px;
+        padding: 0 16px;
+    }
 }
 
 .title-bar-left {
@@ -47,6 +66,13 @@
     border: none;
     cursor: pointer;
     transition: opacity 0.2s;
+}
+
+@media (max-width: 768px) {
+    .control-button {
+        width: 16px;
+        height: 16px;
+    }
 }
 
 .control-button:hover {
@@ -123,6 +149,12 @@
     color: #4EC9B0;
     opacity: 0.5;
     transition: opacity 0.2s;
+}
+
+@media (max-width: 768px) {
+    .resize-handle {
+        display: none;
+    }
 }
 
 .resize-handle:hover {

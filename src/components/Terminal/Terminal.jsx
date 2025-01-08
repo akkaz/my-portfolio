@@ -41,7 +41,7 @@ const Terminal = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!inputValue) return;
+        if (!inputValue.trim()) return;
 
         const command = inputValue.trim().toLowerCase();
         let result = commandProcessor.current.process(command);
@@ -130,9 +130,17 @@ const Terminal = () => {
                                         handleSubmit(e);
                                     }
                                 }}
+<<<<<<< HEAD
                                 spellCheck="false"
                                 autoFocus
                                 placeholder={t('inputPlaceholder')}
+=======
+                spellCheck="false"
+                autoFocus
+                autoComplete="off"
+                autoCapitalize="none"
+                autoCorrect="off"
+>>>>>>> a032949d (feat: Add mobile responsiveness and clean up project structure)
                             />
                         </div>
                     </div>

@@ -12,7 +12,7 @@ Here's how to navigate:
 🎯 Available Commands:
    [1] about    👤 Get to know me
    [2] skills   💻 See my technical expertise
-   [3] whoami   📌 Quick introduction
+   [3] who-am-i   📌 Quick introduction
 
    menu     🏠 Show this menu again
    clear    🧹 Clean the screen
@@ -28,7 +28,7 @@ Just type a number or command and press Enter!`,
 
 [1] about    👤 Get to know me
 [2] skills   💻 See my technical expertise
-[3] whoami   📌 Quick introduction
+[3] who-am-i   📌 Quick introduction
 
 Type a number or command and press Enter.
 Type 'help' if you need assistance.`,

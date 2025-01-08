@@ -4,9 +4,19 @@
     padding: 1.5rem;
     overflow-y: auto;
     font-family: 'Fira Code', monospace;
+<<<<<<< HEAD
     line-height: 1.6;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 0 0 8px 8px;
+=======
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+    .terminal {
+        padding: 1rem;
+    }
+>>>>>>> a032949d (feat: Add mobile responsiveness and clean up project structure)
 }
 
 .terminal-content {
@@ -45,13 +55,32 @@
     color: #7aa2f7;
 }
 
+@media (max-width: 480px) {
+    .prompt::before {
+        content: "guest$ ";
+    }
+}
+
 .input-line {
     display: flex;
     margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+    .input-line {
+        gap: 4px;
+    }
 }
 
 .input-prefix {
     color: #7aa2f7;
+}
+
+@media (max-width: 480px) {
+    .input-prefix {
+        content: "guest$ ";
+    }
 }
 
 .input-wrapper {
