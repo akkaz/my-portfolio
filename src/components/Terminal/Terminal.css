@@ -4,11 +4,9 @@
     padding: 1.5rem;
     overflow-y: auto;
     font-family: 'Fira Code', monospace;
-<<<<<<< HEAD
     line-height: 1.6;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 0 0 8px 8px;
-=======
     -webkit-overflow-scrolling: touch;
 }
 
@@ -16,12 +14,12 @@
     .terminal {
         padding: 1rem;
     }
->>>>>>> a032949d (feat: Add mobile responsiveness and clean up project structure)
 }
 
 .terminal-content {
     max-width: 900px;
     margin: 0 auto;
+    padding-bottom: 2rem;
 }
 
 .line {
@@ -48,10 +46,11 @@
 
 .prompt {
     color: #7aa2f7;
+    font-weight: 500;
 }
 
 .prompt::before {
-    content: "[akkaz~]$ ";
+    content: "$ ";
     color: #7aa2f7;
 }
 
@@ -61,10 +60,47 @@
     }
 }
 
+.command-output {
+    color: #D4D4D4;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.content-section {
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(192, 202, 245, 0.1);
+}
+
+.content-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #c0caf5;
+}
+
+.content-body {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #a9b1d6;
+}
+
+.contact-info {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #a9b1d6;
+}
+
+.contact-note {
+    font-size: 0.9rem;
+    color: #7aa2f7;
+    margin-top: 1rem;
+}
+
 .input-line {
     display: flex;
-    margin-top: 0.5rem;
+    margin-top: 2rem;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 @media (max-width: 480px) {
@@ -106,42 +142,28 @@
     font-style: italic;
 }
 
-/* Custom block cursor */
 .input-wrapper {
     position: relative;
-}
-
-.input-wrapper {
     flex: 1;
     display: flex;
     align-items: center;
 }
 
-.input-wrapper input {
-    width: 100%;
-    background: transparent;
-    border: none;
-    color: #c0caf5;
-    font-family: 'Fira Code', monospace;
-    font-size: 1rem;
-    padding: 0;
-    outline: none;
-    caret-color: #c0caf5;
-    caret-width: thick;
+.back-to-welcome {
+    color: #7aa2f7;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
 }
 
-.input-wrapper input::placeholder {
-    color: rgba(192, 202, 245, 0.3);
+.back-to-welcome:hover {
+    color: #c0caf5;
 }
 
 @keyframes blink {
     0%, 49% { opacity: 1; }
     50%, 100% { opacity: 0; }
-}
-
-.output {
-    color: #D4D4D4;
-    white-space: pre-wrap;
 }
 
 .error {
@@ -152,7 +174,6 @@
     color: #a9b1d6;
 }
 
-/* Scrollbar styling */
 .terminal::-webkit-scrollbar {
     width: 8px;
 }
@@ -166,7 +187,6 @@
     border-radius: 4px;
 }
 
-/* Animation for text appearance */
 @keyframes fadeIn {
     from {
         opacity: 0;

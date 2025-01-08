@@ -1,16 +1,9 @@
-<<<<<<< HEAD
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import './WindowFrame.css';
 
 const WindowFrame = ({ children }) => {
     const { language, setLanguage } = useLanguage();
-
-=======
-import React, { useEffect, useState } from 'react';
-import './WindowFrame.css';
-
-const WindowFrame = ({ children }) => {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
@@ -25,14 +18,14 @@ const WindowFrame = ({ children }) => {
             window.removeEventListener('resize', checkMobile);
         };
     }, []);
->>>>>>> a032949d (feat: Add mobile responsiveness and clean up project structure)
+
     const handleHomeClick = () => {
         // You can implement custom home button behavior here
         console.log('Home clicked');
     };
 
     return (
-        <div className="window">
+        <div className={`window ${isMobile ? 'mobile' : ''}`}>
             <div className="title-bar">
                 <div className="title-bar-left">
                     <button 
