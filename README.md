@@ -21,11 +21,24 @@ npm run build
 
 ## Features
 
-- Interactive terminal interface
-- Command-based navigation
-- Streaming text effect
-- Resizable window
-- Responsive design
+- Interactive terminal interface with authentic command-line experience
+- Command-based navigation with tab completion support
+- Smooth streaming text effect for dynamic content display
+- Resizable window with drag-and-drop support
+- Fully responsive design that works on all devices
+- Custom themes and color schemes
+- Command history navigation
+
+## Project Structure
+
+```
+src/
+├── data/        # Command definitions and content
+├── styles/      # Global and component styles
+└── components/  # React components
+    ├── Terminal/    # Terminal-related components
+    └── shared/      # Reusable UI components
+```
 
 ## Available Commands
 

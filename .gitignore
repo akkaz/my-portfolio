@@ -1,0 +1,12 @@
+node_modules/
+.DS_Store
+*.log
+.env
+.env.local
+.cache/
+build/
+dist/
+coverage/
+*.png
+test-*.js
+google-*.js
