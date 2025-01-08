@@ -4,6 +4,13 @@
     padding: 1.5rem;
     overflow-y: auto;
     font-family: 'Fira Code', monospace;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+    .terminal {
+        padding: 1rem;
+    }
 }
 
 .terminal-content {
@@ -25,13 +32,32 @@
     color: #4EC9B0;
 }
 
+@media (max-width: 480px) {
+    .prompt::before {
+        content: "guest$ ";
+    }
+}
+
 .input-line {
     display: flex;
     margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+    .input-line {
+        gap: 4px;
+    }
 }
 
 .input-prefix {
     color: #4EC9B0;
+}
+
+@media (max-width: 480px) {
+    .input-prefix {
+        content: "guest$ ";
+    }
 }
 
 .input-wrapper {

@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './WindowFrame.css';
 
 const WindowFrame = ({ children }) => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        
+        return () => {
+            window.removeEventListener('resize', checkMobile);
+        };
+    }, []);
     const handleHomeClick = () => {
         // You can implement custom home button behavior here
         console.log('Home clicked');
@@ -27,7 +41,7 @@ const WindowFrame = ({ children }) => {
                 </div>
             </div>
             {children}
-            <div className="resize-handle" title="Resize"/>
+            {!isMobile && <div className="resize-handle" title="Resize"/>}
         </div>
     );
 };

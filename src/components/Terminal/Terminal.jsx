@@ -39,7 +39,7 @@ const Terminal = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!inputValue) return;
+        if (!inputValue.trim()) return;
 
         const result = commandProcessor.current.process(inputValue);
         
@@ -125,8 +125,11 @@ const Terminal = () => {
                                         handleSubmit(e);
                                     }
                                 }}
-                                spellCheck="false"
-                                autoFocus
+                spellCheck="false"
+                autoFocus
+                autoComplete="off"
+                autoCapitalize="none"
+                autoCorrect="off"
                             />
                         </div>
                     </div>

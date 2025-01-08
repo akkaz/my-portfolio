@@ -12,6 +12,10 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 .app {
@@ -19,4 +23,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .app {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 }
